@@ -13,11 +13,12 @@ class MessageView(APIView):
 		'''the many param informs the serializer that it will be serializing
 		more than a single item'''
 		serializer = MessageSerializer(messages, many=True)
-		return Response({"messages": serializer.data})
+		return Response(serializer.data)
 
 
 	def post(self, request):
-		message = request.data.get('message')
+		message = request.data
+
 
 		# Create an mesage from the above data
 		serializer = MessageSerializer(data=message)
@@ -46,3 +47,7 @@ class MessageView(APIView):
 	    message.delete()
 	    success_str = f"Message with id `{pk}` has been deleted"
 	    return Response({"message": success_str}, status=204)
+
+
+
+	

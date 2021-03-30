@@ -1,1 +1,49 @@
-<h1>Test Web App!</h1>
+<head>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
+</head>
+
+<font size=30>
+	<a href='/admin'>Admin<a/>
+</font>
+
+<font size=30>
+	<a href='/silk'>Silk<a/>
+</font>
+
+<font size=30>
+	<a href='api/messages'>DRF API<a/>
+</font>
+
+<font size=30>
+	<a href='/'>Refresh<a/>
+</font>
+<br /><br /><br />
+
+<table>
+<b>Plane messages log</b>
+<tr>   
+	<!-- titles -->
+	<th>ID</th>
+	<th>Message</th>
+	<th>Detials</th>
+	<th>Plane</th>
+	<th>Value</th>
+	<th>Number</th>
+
+</tr>
+
+{% for obj in object_list %}
+<tr>
+	<!-- table contents -->
+	<td>{{obj.id}}</td>
+	<td>{{obj.title}}</td>
+	<td>{{obj.details}}</td>
+	<td>{{obj.plane}}</td>
+	<td>{{obj.value}}</td>
+	<td>{{obj.number}}</td>
+
+</tr>
+{% endfor %}
+
+</table>
