@@ -22,3 +22,5 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('api/', include('messages.urls')),
 ]
+
+urlpatterns += [path('silk/', include('silk.urls', namespace='silk'))]

@@ -3,6 +3,7 @@ from .models import Message
 
 
 class MessageSerializer(serializers.Serializer):
+    id = serializers.ReadOnlyField()
     title = serializers.CharField(max_length=120)
     details = serializers.CharField(max_length=120)
     value = serializers.CharField()
