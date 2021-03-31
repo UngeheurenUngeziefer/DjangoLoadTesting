@@ -1,5 +1,6 @@
 import requests
 import ast
+from random import randint
 
 
 class Client:
@@ -66,7 +67,8 @@ class Client:
 	# POST method
 	def post_message(self, json):
 		'''create message
-		   return call status'''
+		   return call status
+		   {message: str, detials: str,	plane: str, value: str,	number: int}'''
 
 		self.url = 'http://127.0.0.1:8000/api/messages/'
 
@@ -78,10 +80,10 @@ class Client:
 			message_title = json['title']
 			print(f'Message {message_title} has been created!')
 		else:
-			print(f'Incorrect or missing value!')
+			print(f'Incorrect/missing value or incorrect format!')
 
 
-	# DELETE method
+	# DELETE method easdkfjsdkf
 	def delete_message(self, message_id):
 		'''delete message
 		   return call status'''
@@ -96,5 +98,18 @@ class Client:
 			print(f'Message_id {message_id} not found!')
 
 
-Client().delete_message(23)
+
+# Client().post_message({"title": "Message 20",
+# 						   "details": "det 20",
+# 						   "value": "value 20",
+# 						   "number": 2000,
+# 						   "plane_id": 2})
+
+# Client().delete_message(23)
+
+# Client().change_values(11, {"title": "Message 8 Edited"})
 Client().get_all_messages()
+
+
+
+
