@@ -17,8 +17,12 @@ class Client:
 		'''return all messages each on a new line
 		   return call status'''
 
+		if len(self.dict) == 0:
+			print('There are no messages!')
+		
 		for i in range(len(self.dict)):
 			print(self.dict[i])
+
 
 		if self.status_code == 200:
 			print(f'\n{self.status_code} GET method called successfully!')
@@ -83,33 +87,37 @@ class Client:
 			print(f'Incorrect/missing value or incorrect format!')
 
 
-	# DELETE method easdkfjsdkf
+	# DELETE method
 	def delete_message(self, message_id):
 		'''delete message
 		   return call status'''
 
 		self.url = 'http://127.0.0.1:8000/api/messages/' + str(message_id)
 		
-		r = requests.delete(self.url)
+		
+		self.requests = requests.delete(self.url)
 
-		if r.status_code == 204:
-			print(f'Message {message_id} has been deleted!')
-		elif r.status_code == 404:
+		if self.requests.status_code == 200:
+			print(f'Message {message_id} getted!')
+			print(f'Message_id {message_id} deleted!')
+		elif self.requests.status_code == 404:
 			print(f'Message_id {message_id} not found!')
 
 
 
-# Client().post_message({"title": "Message 20",
-# 						   "details": "det 20",
-# 						   "value": "value 20",
-# 						   "number": 2000,
-# 						   "plane_id": 2})
 
-# Client().delete_message(23)
-
-# Client().change_values(11, {"title": "Message 8 Edited"})
-Client().get_all_messages()
+# for i in range(100):
+# 	Client().post_message({"title": f"Message {i}",
+# 							   "details": "det 20",
+# 							   "value": "value 20",
+# 							   "number": i + 1000,
+# 							   "plane_id": randint(1, 4)})
 
 
+# for i in range(93, 195):
+# 	Client().delete_message(i)
 
+# Client().change_values(33, {"title": "Message 33 Edited"})
 
+# Client().get_all_messages()
+# Client().get_one_message(30)

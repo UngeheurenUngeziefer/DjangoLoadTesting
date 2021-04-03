@@ -46,7 +46,7 @@ class MessageView(APIView):
 	    message = get_object_or_404(Message.objects.all(), pk=pk)
 	    message.delete()
 	    success_str = f"Message with id `{pk}` has been deleted"
-	    return Response({"message": success_str}, status=204)
+	    return Response({"message": success_str}, status=200)
 
 
 
