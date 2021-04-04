@@ -1,7 +1,7 @@
 import requests
 import ast
 from random import randint
-
+from timer_wrapper import timer
 
 class Client:
 
@@ -12,7 +12,9 @@ class Client:
 		self.dict = ast.literal_eval(self.response.text)
 		self.status_code = self.response.status_code
 
+
 	# GET methods
+	@timer
 	def get_all_messages(self):
 		'''return all messages each on a new line
 		   return call status'''
@@ -30,6 +32,7 @@ class Client:
 			print('Url not found!')
 
 
+	@timer
 	def get_one_message(self, message_id):
 		'''return specific message with index
 		   return call status'''
@@ -52,6 +55,7 @@ class Client:
  		
 
 	# PUT method
+	@timer
 	def change_values(self, message_id, json):
 		'''change values of message
 		   return call status'''
@@ -69,6 +73,7 @@ class Client:
 
 
 	# POST method
+	@timer
 	def post_message(self, json):
 		'''create message
 		   return call status
@@ -88,6 +93,7 @@ class Client:
 
 
 	# DELETE method
+	@timer
 	def delete_message(self, message_id):
 		'''delete message
 		   return call status'''
@@ -114,10 +120,10 @@ class Client:
 # 							   "plane_id": randint(1, 4)})
 
 
-# for i in range(93, 195):
+# for i in range(250, 500):
 # 	Client().delete_message(i)
 
-# Client().change_values(33, {"title": "Message 33 Edited"})
+# Client().change_values(455, {"title": "Message Edited"})
 
+# Client().get_one_message(344)
 # Client().get_all_messages()
-# Client().get_one_message(30)
