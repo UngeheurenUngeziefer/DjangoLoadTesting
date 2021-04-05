@@ -111,7 +111,10 @@ class Client:
 
 
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> c10969d85939bcec499abe608befe6cf7c154b9b
 # for i in range(100):
 # 	Client().post_message({"title": f"Message {i}",
 # 							   "details": "det 20",
@@ -119,8 +122,12 @@ class Client:
 # 							   "number": i + 1000,
 # 							   "plane_id": randint(1, 4)})
 
+<<<<<<< HEAD
+# for i in range(930, 1010):
+=======
 
 # for i in range(250, 500):
+>>>>>>> c10969d85939bcec499abe608befe6cf7c154b9b
 # 	Client().delete_message(i)
 
 # Client().change_values(455, {"title": "Message Edited"})
