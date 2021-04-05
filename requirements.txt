@@ -1,2 +1,4 @@
-requests==2.22.0
+pytest==6.2.3
 Django==1.11.29
+requests==2.22.0
+locustio==0.999
